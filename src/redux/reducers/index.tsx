@@ -4,8 +4,7 @@ const image_placeholder = "https://1.bp.blogspot.com/-tIdNnST7hiA/T_5a3pVKfXI/AA
 export const initialState={
     dark_mode: false,
     sort_method:"date",
-    user_id:"1264804",
-    user_profile:{display_name:"-",profile_image:image_placeholder, reputation:"-", accept_rate:"-"},
+    user_profile:{user_id:"", display_name:"-",profile_image:image_placeholder, reputation:"-", accept_rate:"-"},
     questions:[],
 };
 

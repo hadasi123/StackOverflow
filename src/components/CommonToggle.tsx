@@ -1,21 +1,26 @@
 import React, {useState} from "react";
-import { Text, View , Switch} from "react-native";
+import { Text, View , Switch, StyleSheet} from "react-native";
+import styles from "../constants/styles";
 
 const CommonToggle = (props) => {
 
-  const {defaultValue, titleOn, titleOff} = props;
+  const {defaultValue, titleOn, titleOff, parentCallback} = props;
   const [isEnabled, setIsEnabled] = useState(defaultValue);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const toggleSwitch = () => {
+    setIsEnabled(previousState => !previousState);
+    parentCallback()
+  }
 
   return (
     <View style={{flexDirection:"column",alignItems:'flex-end'}}>
       <Switch 
-        trackColor={{ false: "#767577", true: "#F6A18E" }}
-        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
         onValueChange={toggleSwitch}
         value={isEnabled}>
       </Switch>
-      <Text> {isEnabled? titleOn: titleOff}</Text>
+      <Text style={isEnabled? styles.dark_text_style: styles.light_text_style}>
+        {isEnabled? titleOff: titleOn}
+      </Text>
     </View>
   );
 };

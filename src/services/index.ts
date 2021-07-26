@@ -1,11 +1,8 @@
-  
-import axios from 'axios';
+  import axios from 'axios';
 import api from '../config';
 
 const config = api()
 const client = axios.create(config);
-//https://api.stackexchange.com/2.2/users/1264804/questions?order=desc&sort=activity&site=stackoverflow
-
 
 const commonService = {
   getData(params) {
@@ -17,8 +14,6 @@ const commonService = {
                 'site':params.site,},
     });
   },
-
-  
 };
 
 export { commonService };

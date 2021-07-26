@@ -1,12 +1,14 @@
 import React from "react";
-import { TextInput, View } from "react-native";
+import { TextInput, View} from "react-native";
+import * as colors from "../constants/colors";
 
 const CommonInput = (props) => {
 
     const [text, onChangeText] = React.useState(props.text);
-    const { maxCharacters, hint, inputStyle, parentCallback } = props;
+    const { maxCharacters, hint, inputStyle, parentCallback, keyboardType } = props;
     
     return (
+      
       <View style={[styles.base, { ...inputStyle }]}>
         <TextInput
           style={styles.text}
@@ -16,6 +18,7 @@ const CommonInput = (props) => {
           onChangeText={onChangeText}
           value={text}
           placeholder={hint}
+          keyboardType={keyboardType}
         ></TextInput>
       </View>
     );
@@ -25,7 +28,7 @@ const CommonInput = (props) => {
     base: {
       flexDirection: "column",
       alignContent: "flex-start",
-      backgroundColor:"#F9F0EE",
+      backgroundColor:colors.light_orange,
     },
     text: {
       fontSize: 12,
