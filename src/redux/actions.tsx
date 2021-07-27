@@ -1,5 +1,4 @@
 import {commonService} from "../services";
-
 export const TOGGLE_DARK_MODE = "TOGGLE_DARK_MODE";
 export const SET_USER_ID = "SET_USER_ID";
 export const SORT_QUESTIONS = "SORT_QUESTIONS";
@@ -17,6 +16,13 @@ export const updateUserProfileAction=(query)=>async(dispatch,getState)=>{
         type:SET_USER_ID,
         payload:profile
     })
+}
+
+export const refreshUserProfileAndQuestions=(query)=>async(dispatch, getState)=>{
+    
+    return dispatch(updateUserProfileAction(query)).then(()=>
+    dispatch(sortQuestionsAction(getState().sort_method)))
+
 }
 
 export const getProfileByUserId=async (query:string)=>{

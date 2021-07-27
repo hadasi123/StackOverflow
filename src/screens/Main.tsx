@@ -10,7 +10,7 @@ import {CommonToggle,
         ProfileCard} from "../components";
 
 import {sortQuestionsAction,
-        updateUserProfileAction, 
+        refreshUserProfileAndQuestions, 
         toggleModeAction} from "../redux/actions";
 
 import * as strings from "../constants/strings";
@@ -96,7 +96,7 @@ const mapStateToProps=(state)=>({ dark_mode:state.dark_mode,
 
 const mapDispatchToProps={
   sortQuestions:sortQuestionsAction,
-  updateUserProfile:updateUserProfileAction,
+  updateUserProfile:refreshUserProfileAndQuestions,
   toggleMode:toggleModeAction,
 }
 
