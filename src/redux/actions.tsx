@@ -18,19 +18,12 @@ export const updateUserProfileAction=(query)=>async(dispatch,getState)=>{
     })
 }
 
-export const refreshUserProfileAndQuestions=(query)=>async(dispatch, getState)=>{
-    
-    return dispatch(updateUserProfileAction(query)).then(()=>
-    dispatch(sortQuestionsAction(getState().sort_method)))
-
-}
-
 export const getProfileByUserId=async (query:string)=>{
 
     const res = await commonService.getData({
         user_id: query,
         order: 'desc',
-        sort: 'activity',
+        sort: 'creation',
         site: 'stackoverflow'
     });
     const results = res.data.items;
